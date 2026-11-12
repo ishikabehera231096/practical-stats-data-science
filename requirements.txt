@@ -1,0 +1,19 @@
+# Data Wrangling & Math
+numpy
+pandas
+scipy
+
+# Statistical Modeling & ML
+statsmodels
+scikit-learn
+imbalanced-learn
+pingouin
+xgboost
+shap
+
+# Visualization
+matplotlib
+seaborn
+
+# Environment Support
+ipykernel
