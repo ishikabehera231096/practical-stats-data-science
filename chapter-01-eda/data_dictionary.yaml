@@ -1,0 +1,218 @@
+
+dataset:
+  name: Bike Sharing Dataset
+  source: UCI Machine Learning Repository
+  source_url: "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset"
+  description: >
+    Hourly bike rental data from a bike-sharing system,
+    including rental counts, date and time information,
+    weather conditions, and seasonal indicators.
+  file_name: hour.csv
+  file_format: CSV
+  license: "Verify from the UCI dataset page"
+  date_downloaded:
+  last_updated:
+
+  dimensions:
+    rows: 17379
+    columns: 17
+
+  observation:
+    unit: Hourly observation
+    description: >
+      Each row represents bike rental activity recorded
+      during a particular hour on a particular date.
+
+  variables:
+
+    - name: instant
+      description: Record index
+      data_type: integer
+      analytical_type: identifier
+      role: identifier
+      measurement_unit:
+      allowed_values:
+      missing_values:
+      notes: Unique record index; not a meaningful predictor.
+
+    - name: dteday
+      description: Date of the observation
+      data_type: string
+      analytical_type: datetime
+      role: timestamp
+      measurement_unit: date
+      allowed_values:
+      missing_values:
+      notes: Date associated with the hourly rental record.
+
+    - name: season
+      description: Season of the year
+      data_type: integer
+      analytical_type: categorical
+      role: feature
+      measurement_unit:
+      allowed_values:
+        1: Spring
+        2: Summer
+        3: Fall
+        4: Winter
+      missing_values:
+      notes: Encoded seasonal category.
+
+    - name: yr
+      description: Year indicator
+      data_type: integer
+      analytical_type: categorical
+      role: feature
+      measurement_unit:
+      allowed_values:
+        0: 2011
+        1: 2012
+      missing_values:
+      notes: Binary year encoding.
+
+    - name: mnth
+      description: Month of the year
+      data_type: integer
+      analytical_type: categorical
+      role: feature
+      measurement_unit: month
+      allowed_values: "1-12"
+      missing_values:
+      notes: Ordered categorical variable with cyclical behaviour.
+
+    - name: hr
+      description: Hour of the day
+      data_type: integer
+      analytical_type: categorical
+      role: feature
+      measurement_unit: hour
+      allowed_values: "0-23"
+      missing_values:
+      notes: 24-hour clock; cyclical variable.
+
+    - name: holiday
+      description: Indicates whether the day is a holiday
+      data_type: integer
+      analytical_type: binary_categorical
+      role: feature
+      measurement_unit:
+      allowed_values:
+        0: Non-holiday
+        1: Holiday
+      missing_values:
+      notes: Based on the holiday schedule.
+
+    - name: weekday
+      description: Day of the week
+      data_type: integer
+      analytical_type: categorical
+      role: feature
+      measurement_unit:
+      allowed_values: "0-6"
+      missing_values:
+      notes: Day-of-week encoding; verify the exact day mapping from the dataset documentation.
+
+    - name: workingday
+      description: Indicates whether the day is a working day
+      data_type: integer
+      analytical_type: binary_categorical
+      role: feature
+      measurement_unit:
+      allowed_values:
+        0: Non-working day
+        1: Working day
+      missing_values:
+      notes: 1 when the day is neither a weekend nor a holiday.
+
+    - name: weathersit
+      description: Weather situation
+      data_type: integer
+      analytical_type: ordinal_categorical
+      role: feature
+      measurement_unit:
+      allowed_values:
+        1: Clear, few clouds, partly cloudy
+        2: Mist, cloudy, broken clouds
+        3: Light snow or light rain
+        4: Heavy rain, ice pellets, thunderstorm, snow or fog
+      missing_values:
+      notes: >
+        Weather severity categories. Higher values indicate
+        more adverse weather conditions.
+
+    - name: temp
+      description: Normalized temperature in Celsius
+      data_type: float
+      analytical_type: numerical
+      role: feature
+      measurement_unit: normalized
+      allowed_values: "0-1"
+      missing_values:
+      notes: >
+        Transformation: (t - (-8)) / (39 - (-8)).
+        Original hourly temperature range: -8 to 39 Celsius.
+
+    - name: atemp
+      description: Normalized feeling temperature in Celsius
+      data_type: float
+      analytical_type: numerical
+      role: feature
+      measurement_unit: normalized
+      allowed_values: "0-1"
+      missing_values:
+      notes: >
+        Transformation: (t - (-16)) / (50 - (-16)).
+        Original hourly feeling temperature range: -16 to 50 Celsius.
+
+    - name: hum
+      description: Normalized humidity
+      data_type: float
+      analytical_type: numerical
+      role: feature
+      measurement_unit: normalized
+      allowed_values: "0-1"
+      missing_values:
+      notes: Original humidity divided by 100.
+
+    - name: windspeed
+      description: Normalized wind speed
+      data_type: float
+      analytical_type: numerical
+      role: feature
+      measurement_unit: normalized
+      allowed_values: "0-1"
+      missing_values:
+      notes: Original wind speed divided by 67.
+
+    - name: casual
+      description: Count of casual user rentals
+      data_type: integer
+      analytical_type: numerical
+      role: component_of_target
+      measurement_unit: rentals
+      allowed_values: "Non-negative integers"
+      missing_values:
+      notes: Rentals made by non-registered users.
+
+    - name: registered
+      description: Count of registered user rentals
+      data_type: integer
+      analytical_type: numerical
+      role: component_of_target
+      measurement_unit: rentals
+      allowed_values: "Non-negative integers"
+      missing_values:
+      notes: Rentals made by registered users.
+
+    - name: cnt
+      description: Total number of bike rentals
+      data_type: integer
+      analytical_type: numerical
+      role: target
+      measurement_unit: rentals
+      allowed_values: "Non-negative integers"
+      missing_values:
+      notes: >
+        Total rentals. Validated relationship:
+        cnt = casual + registered.
