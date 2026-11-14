@@ -12,7 +12,7 @@ The objective is to develop practical skills in exploratory data analysis, stati
 
 | Chapter | Topic | Project | Status |
 |---|---|---|---|
-| 01 | Exploratory Data Analysis | Bike Sharing Demand Analysis | In Progress |
+| 01 | Exploratory Data Analysis | Bike Sharing Demand Analysis | Done |
 | 02 | Data and Sampling Distributions | Rainfall Sampling Analysis | Planned |
 | 03 | Statistical Experiments and Significance Testing | Student Performance Experiment | Planned |
 | 04 | Regression and Prediction | Residential Property Price Analysis | Planned |
